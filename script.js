@@ -4,11 +4,21 @@ const showPhone = document.getElementById('showPhone');
 const phoneField = document.getElementById('phoneField');
 const successMsg = document.getElementById('successMsg');
 
-// Validation functions
+// ...existing code...
+document.addEventListener('DOMContentLoaded', function() {
+  const passwordInput = document.getElementById('password');
+  const togglePassword = document.getElementById('togglePassword');
+  let visible = false;
+
+  togglePassword.addEventListener('click', function() {
+    visible = !visible;
+    passwordInput.type = visible ? 'text' : 'password';
+    togglePassword.textContent = visible ? '🙈' : '👁️';
+  });
+});
 function validateName(name) {
   if (!name) return "Name is required.";
   const trimmed = name.trim();
-  // Check for exactly two words, each with only letters
   if (!/^[A-Za-z]+ [A-Za-z]+$/.test(trimmed)) {
     return "Name must contain exactly two words, each with only letters.";
   }
